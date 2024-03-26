@@ -27,9 +27,9 @@ namespace HSVtoRGB
                 // на основании значений создали экземпл€ры нашего класса Length 
                 var hsv = new Hsv();
                 RGB rgb;
-                hsv.H = firstValue;
-                hsv.S = secondValue;
-                hsv.V = tgirdValue;
+                hsv.Hue = firstValue;
+                hsv.Saturation = secondValue;
+                hsv.Value = tgirdValue;
                 rgb = hsv.solver();
 
                 // записали в поле txtResult длину в строковом виде
@@ -68,111 +68,91 @@ namespace HSVtoRGB
 
     public class Hsv
     {
-        public float H;
-        //{
-        //    get
-        //    {
-        //        return h;
-        //    }
-        //    set
-        //    {
-        //        h = value;
-        //    }
-        //}
-        public float S;
-        //{
-        //    get
-        //    {
-        //        return s;
-        //    }
-        //    set
-        //    {
-        //        s = value;
-        //    }
-        //}
-        public float V;
-        //{
-        //    get
-        //    {
-        //        return v;
-        //    }
-        //    set
-        //    {
-        //        v = value;
-        //    }
-        //}
-        //private double Setrech(double h)
-        //{
-        //    if (h <= 360)
-        //    {
+        private float hue;
 
-        //        return h;
-
-        //    }
-
-        //    return Setrech(h - 360);
-        //}
-
-        //private double Settecp(double per)
-        //{
-        //    if (per <= 100)
-        //    {
-        //        return per;
-        //    }
-        //    return Settecp(per - 100);
-        //}
+        public float Hue
+        {
+            get
+            {
+                return hue;
+            }
+            set
+            {
+                hue = value;
+            }
+        }
+        private float saturation;
+        public float Saturation
+        {
+            get
+            {
+                return saturation;
+            }
+            set
+            {
+                saturation = value / 100;
+            }
+        }
+        private float valueB;
+        public float Value
+        {
+            get
+            {
+                return valueB;
+            }
+            set
+            {
+                valueB = value / 100;
+            }
+        }
 
         public RGB solver()
         {
             float r, g, b;
 
-            float h = H / 60;
-
-            float s = S / 100;
-
-            float v = V / 100;
+            float h = hue / 60;
 
             int Hi = (int)Math.Floor(h);
 
-            float Vmin = v * (1 - s);
+            float Vmin = valueB * (1 - saturation);
 
-            float a = (v - Vmin) * (H % 60) / 60;
+            float a = (valueB - Vmin) * (hue % 60) / 60;
 
             float Vinc = Vmin + a;
 
-            float Vdec = v - a;
+            float Vdec = valueB - a;
 
 
             switch (Hi % 6)
             {
                 case 0:
-                    r = v;
+                    r = valueB;
                     g = Vinc;
                     b = Vmin;
                     break;
                 case 1:
                     r = Vdec;
-                    g = v;
+                    g = valueB;
                     b = Vmin;
                     break;
                 case 2:
                     r = Vmin;
-                    g = v;
+                    g = valueB;
                     b = Vinc;
                     break;
                 case 3:
                     r = Vmin;
                     g = Vdec;
-                    b = v;
+                    b = valueB;
                     break;
                 case 4:
                     r = Vinc;
                     g = Vmin;
-                    b = v;
+                    b = valueB;
                     break;
                 case 5:
                 default:
-                    r = v;
+                    r = valueB;
                     g = Vmin;
                     b = Vdec;
                     break;
