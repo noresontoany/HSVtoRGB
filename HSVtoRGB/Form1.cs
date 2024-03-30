@@ -19,7 +19,7 @@ namespace HSVtoRGB
             {
                 hsv_to_rgb_Setter();
             }
-            
+
         }
         private void saturationValueChanged(object sender, EventArgs e)
         {
@@ -68,12 +68,21 @@ namespace HSVtoRGB
             try
             {
                 EvenIsGoing = true;
-                // считали значения с полей для ввода и сконвертили в числа
+
+
                 var HueValue = float.Parse(numHue.Text);
                 var SaturationValue = float.Parse(numSaturation.Text);
                 var BrightnessValue = float.Parse(numValueBrightness.Text);
 
-                // на основании значений создали экземпляры нашего класса Length 
+
+                //if (HueValue < 0 || HueValue > 360) throw new Exception();
+
+                //if (SaturationValue < 0 || SaturationValue > 100) throw new Exception();
+
+                //if (BrightnessValue < 0 || BrightnessValue > 100) throw new Exception();
+
+
+
                 var hsv = new Hsv();
                 RGB rgb;
                 hsv.Hue = HueValue;
@@ -81,7 +90,6 @@ namespace HSVtoRGB
                 hsv.Value = BrightnessValue;
                 rgb = hsv.Solver();
 
-                // записали в поле txtResult длину в строковом виде
                 numRed.Text = Convert.ToString(rgb.r);
                 numGreen.Text = Convert.ToString(rgb.g);
                 numBlue.Text = Convert.ToString(rgb.b);
@@ -92,14 +100,15 @@ namespace HSVtoRGB
                 labelValueBrightness.Text = Convert.ToString(rgb.b);
 
 
-                pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.b, (int)rgb.b);
-
+                pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.g, (int)rgb.b);
 
                 EvenIsGoing = false;
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                // если тип преобразовать не смогли
+                MessageBox.Show(
+                "Выберите один из вариантов",
+                 "С");
             }
         }
         public void rgb_to_hsv_Setter()
@@ -107,10 +116,20 @@ namespace HSVtoRGB
 
             try
             {
+
+
                 EvenIsGoing = true;
                 var RedValue = float.Parse(numRed.Text);
                 var GreenValue = float.Parse(numGreen.Text);
                 var BlueValue = float.Parse(numBlue.Text);
+
+
+                //if (RedValue < 0 || RedValue > 255) throw new Exception();
+
+                //if (GreenValue < 0 || GreenValue > 255) throw new Exception();
+
+
+                //if (BlueValue < 0 || BlueValue > 255) throw new Exception();
 
 
                 var rgb = new Rgb();
@@ -127,9 +146,9 @@ namespace HSVtoRGB
                 numValueBrightness.Text = Convert.ToString((int)hsv.Value);
 
 
-                labelHue.Text = Convert.ToString((int)hsv.Hue);
-                labelSaturation.Text = Convert.ToString((int)hsv.Saturation);
-                labelValueBrightness.Text = Convert.ToString((int)hsv.Value);
+                //labelHue.Text = Convert.ToString((int)hsv.Hue);
+                //labelSaturation.Text = Convert.ToString((int)hsv.Saturation);
+                //labelValueBrightness.Text = Convert.ToString((int)hsv.Value);
 
 
 
@@ -138,13 +157,19 @@ namespace HSVtoRGB
 
                 EvenIsGoing = false;
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                // если тип преобразовать не смогли
+                MessageBox.Show(
+                "Выберите один из вариантов",
+                "Сообщение");
+
             }
         }
 
-        
+        private void keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) e.SuppressKeyPress = true;
+        }
     }
 
     public struct RGB

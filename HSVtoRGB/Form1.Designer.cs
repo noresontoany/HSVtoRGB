@@ -60,6 +60,7 @@ namespace HSVtoRGB
             numHue.Size = new Size(126, 23);
             numHue.TabIndex = 0;
             numHue.ValueChanged += HueValueChanged;
+            numHue.KeyDown += keyDown;
             // 
             // numSaturation
             // 
@@ -69,6 +70,7 @@ namespace HSVtoRGB
             numSaturation.Size = new Size(126, 23);
             numSaturation.TabIndex = 1;
             numSaturation.ValueChanged += saturationValueChanged;
+            numSaturation.KeyDown += keyDown;
             // 
             // numValueBrightness
             // 
@@ -78,6 +80,7 @@ namespace HSVtoRGB
             numValueBrightness.Size = new Size(126, 23);
             numValueBrightness.TabIndex = 2;
             numValueBrightness.ValueChanged += brightnessValueChanged;
+            numValueBrightness.KeyDown += keyDown;
             // 
             // pictureBox1
             // 
@@ -87,7 +90,6 @@ namespace HSVtoRGB
             pictureBox1.Size = new Size(141, 148);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // numRed
             // 
@@ -97,6 +99,7 @@ namespace HSVtoRGB
             numRed.Size = new Size(120, 23);
             numRed.TabIndex = 7;
             numRed.ValueChanged += numRed_ValueChanged;
+            numRed.KeyDown += keyDown;
             // 
             // numGreen
             // 
@@ -106,6 +109,7 @@ namespace HSVtoRGB
             numGreen.Size = new Size(120, 23);
             numGreen.TabIndex = 8;
             numGreen.ValueChanged += numGreen_ValueChanged;
+            numGreen.KeyDown += keyDown;
             // 
             // numBlue
             // 
@@ -115,6 +119,7 @@ namespace HSVtoRGB
             numBlue.Size = new Size(120, 23);
             numBlue.TabIndex = 9;
             numBlue.ValueChanged += numBlue_ValueChanged;
+            numBlue.KeyDown += keyDown;
             // 
             // labelRed
             // 
