@@ -1,3 +1,4 @@
+using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HSVtoRGB
@@ -10,6 +11,12 @@ namespace HSVtoRGB
         public Form1()
         {
             InitializeComponent();
+            numRed.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
+            numGreen.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
+            numBlue.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
+            numHue.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
+            numSaturation.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
+            numValueBrightness.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
         }
 
         bool EvenIsGoing;
@@ -95,9 +102,9 @@ namespace HSVtoRGB
                 numBlue.Text = Convert.ToString(rgb.b);
 
 
-                labelHue.Text = Convert.ToString(rgb.r);
-                labelSaturation.Text = Convert.ToString(rgb.g);
-                labelValueBrightness.Text = Convert.ToString(rgb.b);
+                //labelHue.Text = Convert.ToString(rgb.r);
+                //labelSaturation.Text = Convert.ToString(rgb.g);
+                //labelValueBrightness.Text = Convert.ToString(rgb.b);
 
 
                 pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.g, (int)rgb.b);
@@ -111,6 +118,7 @@ namespace HSVtoRGB
                  "Ñ");
             }
         }
+
         public void rgb_to_hsv_Setter()
         {
 

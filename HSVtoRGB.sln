@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSVtoRGB", "HSVtoRGB\HSVtoRGB.csproj", "{C18AB950-1C66-47C8-8794-A45DD6990087}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSVtoRGB", "HSVtoRGB\HSVtoRGB.csproj", "{C18AB950-1C66-47C8-8794-A45DD6990087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSVtoRGBTests", "HSVtoRGBTests\HSVtoRGBTests.csproj", "{DF0E78A2-14AB-4FC0-A12C-E1A99830D478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C18AB950-1C66-47C8-8794-A45DD6990087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C18AB950-1C66-47C8-8794-A45DD6990087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C18AB950-1C66-47C8-8794-A45DD6990087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0E78A2-14AB-4FC0-A12C-E1A99830D478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0E78A2-14AB-4FC0-A12C-E1A99830D478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0E78A2-14AB-4FC0-A12C-E1A99830D478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0E78A2-14AB-4FC0-A12C-E1A99830D478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

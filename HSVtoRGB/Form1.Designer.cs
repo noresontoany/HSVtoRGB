@@ -53,70 +53,69 @@ namespace HSVtoRGB
             // 
             // numHue
             // 
-            numHue.Location = new Point(123, 39);
-            numHue.Margin = new Padding(2);
+            numHue.Location = new Point(176, 65);
             numHue.Maximum = new decimal(new int[] { 360, 0, 0, 0 });
             numHue.Name = "numHue";
-            numHue.Size = new Size(126, 23);
+            numHue.Size = new Size(180, 31);
             numHue.TabIndex = 0;
             numHue.ValueChanged += HueValueChanged;
             numHue.KeyDown += keyDown;
             // 
             // numSaturation
             // 
-            numSaturation.Location = new Point(123, 93);
-            numSaturation.Margin = new Padding(2);
+            numSaturation.Location = new Point(176, 155);
             numSaturation.Name = "numSaturation";
-            numSaturation.Size = new Size(126, 23);
+            numSaturation.Size = new Size(180, 31);
             numSaturation.TabIndex = 1;
             numSaturation.ValueChanged += saturationValueChanged;
             numSaturation.KeyDown += keyDown;
             // 
             // numValueBrightness
             // 
-            numValueBrightness.Location = new Point(123, 162);
-            numValueBrightness.Margin = new Padding(2);
+            numValueBrightness.Location = new Point(176, 270);
             numValueBrightness.Name = "numValueBrightness";
-            numValueBrightness.Size = new Size(126, 23);
+            numValueBrightness.Size = new Size(180, 31);
             numValueBrightness.TabIndex = 2;
             numValueBrightness.ValueChanged += brightnessValueChanged;
             numValueBrightness.KeyDown += keyDown;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(659, 41);
-            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Location = new Point(941, 68);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(141, 148);
+            pictureBox1.Size = new Size(201, 247);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
             // numRed
             // 
-            numRed.Location = new Point(453, 35);
+            numRed.Location = new Point(647, 58);
+            numRed.Margin = new Padding(4, 5, 4, 5);
             numRed.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numRed.Name = "numRed";
-            numRed.Size = new Size(120, 23);
+            numRed.Size = new Size(171, 31);
             numRed.TabIndex = 7;
             numRed.ValueChanged += numRed_ValueChanged;
             numRed.KeyDown += keyDown;
             // 
             // numGreen
             // 
-            numGreen.Location = new Point(453, 93);
+            numGreen.Location = new Point(647, 155);
+            numGreen.Margin = new Padding(4, 5, 4, 5);
             numGreen.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numGreen.Name = "numGreen";
-            numGreen.Size = new Size(120, 23);
+            numGreen.Size = new Size(171, 31);
             numGreen.TabIndex = 8;
             numGreen.ValueChanged += numGreen_ValueChanged;
             numGreen.KeyDown += keyDown;
             // 
             // numBlue
             // 
-            numBlue.Location = new Point(453, 162);
+            numBlue.Location = new Point(647, 270);
+            numBlue.Margin = new Padding(4, 5, 4, 5);
             numBlue.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numBlue.Name = "numBlue";
-            numBlue.Size = new Size(120, 23);
+            numBlue.Size = new Size(171, 31);
             numBlue.TabIndex = 9;
             numBlue.ValueChanged += numBlue_ValueChanged;
             numBlue.KeyDown += keyDown;
@@ -124,62 +123,68 @@ namespace HSVtoRGB
             // labelRed
             // 
             labelRed.AutoSize = true;
-            labelRed.Location = new Point(348, 37);
+            labelRed.Location = new Point(497, 60);
+            labelRed.Margin = new Padding(4, 0, 4, 0);
             labelRed.Name = "labelRed";
-            labelRed.Size = new Size(27, 15);
+            labelRed.Size = new Size(42, 25);
             labelRed.TabIndex = 10;
             labelRed.Text = "Red";
             // 
             // labelGreen
             // 
             labelGreen.AutoSize = true;
-            labelGreen.Location = new Point(337, 95);
+            labelGreen.Location = new Point(481, 158);
+            labelGreen.Margin = new Padding(4, 0, 4, 0);
             labelGreen.Name = "labelGreen";
-            labelGreen.Size = new Size(38, 15);
+            labelGreen.Size = new Size(58, 25);
             labelGreen.TabIndex = 11;
             labelGreen.Text = "Green";
             // 
             // labelBlue
             // 
             labelBlue.AutoSize = true;
-            labelBlue.Location = new Point(345, 170);
+            labelBlue.Location = new Point(493, 283);
+            labelBlue.Margin = new Padding(4, 0, 4, 0);
             labelBlue.Name = "labelBlue";
-            labelBlue.Size = new Size(30, 15);
+            labelBlue.Size = new Size(45, 25);
             labelBlue.TabIndex = 12;
             labelBlue.Text = "Blue";
             // 
             // labelHue
             // 
             labelHue.AutoSize = true;
-            labelHue.Location = new Point(41, 41);
+            labelHue.Location = new Point(77, 65);
+            labelHue.Margin = new Padding(4, 0, 4, 0);
             labelHue.Name = "labelHue";
-            labelHue.Size = new Size(29, 15);
+            labelHue.Size = new Size(56, 25);
             labelHue.TabIndex = 13;
-            labelHue.Text = "Hue";
+            labelHue.Text = "Hue °";
             // 
             // labelSaturation
             // 
             labelSaturation.AutoSize = true;
-            labelSaturation.Location = new Point(41, 101);
+            labelSaturation.Location = new Point(28, 161);
+            labelSaturation.Margin = new Padding(4, 0, 4, 0);
             labelSaturation.Name = "labelSaturation";
-            labelSaturation.Size = new Size(61, 15);
+            labelSaturation.Size = new Size(113, 25);
             labelSaturation.TabIndex = 14;
-            labelSaturation.Text = "Saturation";
+            labelSaturation.Text = "Saturation %";
             // 
             // labelValueBrightness
             // 
             labelValueBrightness.AutoSize = true;
-            labelValueBrightness.Location = new Point(47, 164);
+            labelValueBrightness.Location = new Point(59, 272);
+            labelValueBrightness.Margin = new Padding(4, 0, 4, 0);
             labelValueBrightness.Name = "labelValueBrightness";
-            labelValueBrightness.Size = new Size(35, 15);
+            labelValueBrightness.Size = new Size(74, 25);
             labelValueBrightness.TabIndex = 15;
-            labelValueBrightness.Text = "Value";
+            labelValueBrightness.Text = "Value %";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(846, 273);
+            ClientSize = new Size(1209, 455);
             Controls.Add(labelValueBrightness);
             Controls.Add(labelSaturation);
             Controls.Add(labelHue);
@@ -193,7 +198,6 @@ namespace HSVtoRGB
             Controls.Add(numValueBrightness);
             Controls.Add(numSaturation);
             Controls.Add(numHue);
-            Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)numHue).EndInit();
