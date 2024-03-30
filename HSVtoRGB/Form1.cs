@@ -8,8 +8,6 @@ namespace HSVtoRGB
         {
             InitializeComponent();
         }
-
-
         private void HueValueChanged(object sender, EventArgs e)
         {
             hsv_to_rgb_Setter();
@@ -24,28 +22,49 @@ namespace HSVtoRGB
             hsv_to_rgb_Setter();
         }
 
+        private void numRed_ValueChanged(object sender, EventArgs e)
+        {
+            rgb_to_hsv_Setter();
+        }
+
+        private void numGreen_ValueChanged(object sender, EventArgs e)
+        {
+            rgb_to_hsv_Setter();
+        }
+
+        private void numBlue_ValueChanged(object sender, EventArgs e)
+        {
+            rgb_to_hsv_Setter();
+        }
+
+
         public void hsv_to_rgb_Setter()
         {
 
             try
             {
                 // считали значени€ с полей дл€ ввода и сконвертили в числа
-                var firstValue = float.Parse(numHue.Text);
-                var secondValue = float.Parse(numSaturation.Text);
-                var tgirdValue = float.Parse(numValueBrightness.Text);
+                var HueValue = float.Parse(numHue.Text);
+                var SaturationValue = float.Parse(numSaturation.Text);
+                var BrightnessValue = float.Parse(numValueBrightness.Text);
 
                 // на основании значений создали экземпл€ры нашего класса Length 
                 var hsv = new Hsv();
                 RGB rgb;
-                hsv.Hue = firstValue;
-                hsv.Saturation = secondValue;
-                hsv.Value = tgirdValue;
-                rgb = hsv.solver();
+                hsv.Hue = HueValue;
+                hsv.Saturation = SaturationValue;
+                hsv.Value = BrightnessValue;
+                rgb = hsv.Solver();
 
                 // записали в поле txtResult длину в строковом виде
                 numRed.Text = Convert.ToString(rgb.r);
                 numGreen.Text = Convert.ToString(rgb.g);
                 numBlue.Text = Convert.ToString(rgb.b);
+
+
+                labelHue.Text = Convert.ToString(rgb.r);
+                labelSaturation.Text = Convert.ToString(rgb.g);
+                labelValueBrightness.Text = Convert.ToString(rgb.b);
 
 
                 pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.b, (int)rgb.b);
@@ -55,15 +74,153 @@ namespace HSVtoRGB
                 // если тип преобразовать не смогли
             }
         }
+        public void rgb_to_hsv_Setter()
+        {
 
+            try
+            {
+
+                var RedValue = float.Parse(numRed.Text);
+                var GreenValue = float.Parse(numGreen.Text);
+                var BlueValue = float.Parse(numBlue.Text);
+
+
+                var rgb = new Rgb();
+                HSV hsv;
+
+                rgb.Red = RedValue;
+                rgb.Green = GreenValue;
+                rgb.Blue = BlueValue;
+
+                hsv = rgb.Solver();
+
+                numHue.Text = Convert.ToString(hsv.Hue);
+                numSaturation.Text = Convert.ToString(hsv.Saturation);
+                numValueBrightness.Text = Convert.ToString(hsv.Value);
+
+
+                labelHue.Text = Convert.ToString(hsv.Hue);
+                labelSaturation.Text = Convert.ToString(hsv.Saturation);
+                labelValueBrightness.Text = Convert.ToString(hsv.Value);
+
+
+
+
+                pictureBox1.BackColor = Color.FromArgb((int)RedValue, (int)GreenValue, (int)BlueValue);
+            }
+            catch (FormatException)
+            {
+                // если тип преобразовать не смогли
+            }
+        }
+
+        
     }
-
 
     public struct RGB
     {
         public double r;
         public double g;
         public double b;
+    }
+
+    public struct HSV
+    {
+        public double Hue;
+        public double Saturation;
+        public double Value;
+    }
+
+    public class Rgb
+    {
+        private float red;
+
+        private float green;
+        
+        private float blue; 
+
+        public float Red
+        {
+            get
+            {
+                return red;
+            }
+            set
+            {
+                red = value / 255;
+            }
+        }
+
+        public float Green
+        {
+            get
+            {
+                return green;
+            }
+
+            set
+            {
+                green = value / 255;    
+            }
+
+        }
+
+        public float Blue
+        {
+            get
+            {
+                return blue;
+            }
+            set
+            {
+                blue = value / 255;
+            }
+        }
+
+
+        public HSV Solver()
+        {
+            HSV hsv;
+            float Cmax = Math.Max(this.red, Math.Max(this.green, this.blue));
+            float Cmin = Math.Min(this.red, Math.Min(this.green, this.blue));
+
+            float Delta = Cmax - Cmin;
+
+            if (Delta == 0)
+            {
+                hsv.Hue = 0;
+            }
+            else if (Cmax == this.red)
+            {
+                hsv.Hue = 60 * (((this.green - this.blue) / Delta)) % 6;
+            }
+            else if (Cmax == this.blue)
+            {
+                hsv.Hue = 60 * (((this.blue - this.red)/Delta) + 2);
+            }
+            else
+            {
+                hsv.Hue = 60 * ((this.red - this.green / Delta) + 4);
+            }
+
+            if (Cmax == 0)
+            {
+                hsv.Saturation = 0;
+            }
+            else
+            {
+                hsv.Saturation = Delta / Cmax;
+            }
+
+            hsv.Value = Cmax;
+            hsv.Saturation *= 100;
+            hsv.Value *= 100;
+            return hsv; 
+        }
+
+
+
+
     }
 
     public class Hsv
@@ -106,7 +263,7 @@ namespace HSVtoRGB
             }
         }
 
-        public RGB solver()
+        public RGB Solver()
         {
             float r, g, b;
 
@@ -174,6 +331,9 @@ namespace HSVtoRGB
 
 
     }
+
+
+
     //class Program
     //{
     //    static void Main(string[] args)

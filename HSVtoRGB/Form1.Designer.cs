@@ -92,23 +92,29 @@ namespace HSVtoRGB
             // numRed
             // 
             numRed.Location = new Point(453, 35);
+            numRed.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numRed.Name = "numRed";
             numRed.Size = new Size(120, 23);
             numRed.TabIndex = 7;
+            numRed.ValueChanged += numRed_ValueChanged;
             // 
             // numGreen
             // 
             numGreen.Location = new Point(453, 93);
+            numGreen.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numGreen.Name = "numGreen";
             numGreen.Size = new Size(120, 23);
             numGreen.TabIndex = 8;
+            numGreen.ValueChanged += numGreen_ValueChanged;
             // 
             // numBlue
             // 
             numBlue.Location = new Point(453, 162);
+            numBlue.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numBlue.Name = "numBlue";
             numBlue.Size = new Size(120, 23);
             numBlue.TabIndex = 9;
+            numBlue.ValueChanged += numBlue_ValueChanged;
             // 
             // labelRed
             // 
