@@ -9,20 +9,30 @@ namespace HSVtoRGB
             InitializeComponent();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+
+        private void HueValueChanged(object sender, EventArgs e)
         {
-            calculus();
+            hsv_to_rgb_Setter();
+        }
+        private void saturationValueChanged(object sender, EventArgs e)
+        {
+            hsv_to_rgb_Setter();
         }
 
-        public void calculus()
+        private void brightnessValueChanged(object sender, EventArgs e)
+        {
+            hsv_to_rgb_Setter();
+        }
+
+        public void hsv_to_rgb_Setter()
         {
 
             try
             {
                 // считали значени€ с полей дл€ ввода и сконвертили в числа
-                var firstValue = float.Parse(numericUpDown1.Text);
-                var secondValue = float.Parse(numericUpDown2.Text);
-                var tgirdValue = float.Parse(numericUpDown3.Text);
+                var firstValue = float.Parse(numHue.Text);
+                var secondValue = float.Parse(numSaturation.Text);
+                var tgirdValue = float.Parse(numValueBrightness.Text);
 
                 // на основании значений создали экземпл€ры нашего класса Length 
                 var hsv = new Hsv();
@@ -33,12 +43,12 @@ namespace HSVtoRGB
                 rgb = hsv.solver();
 
                 // записали в поле txtResult длину в строковом виде
-                label1.Text = Convert.ToString(rgb.r);
-                label2.Text = Convert.ToString(rgb.g);
-                label3.Text = Convert.ToString(rgb.b);
+                numRed.Text = Convert.ToString(rgb.r);
+                numGreen.Text = Convert.ToString(rgb.g);
+                numBlue.Text = Convert.ToString(rgb.b);
 
 
-                pictureBox1.BackColor = Color.FromArgb((int)rgb.r,(int)rgb.b,(int)rgb.b);
+                pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.b, (int)rgb.b);
             }
             catch (FormatException)
             {
@@ -46,17 +56,7 @@ namespace HSVtoRGB
             }
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            calculus();
-        }
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-            calculus();
-        }
-
-            }
+    }
 
 
     public struct RGB

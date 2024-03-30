@@ -29,99 +29,169 @@ namespace HSVtoRGB
         /// </summary>
         private void InitializeComponent()
         {
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            numHue = new NumericUpDown();
+            numSaturation = new NumericUpDown();
+            numValueBrightness = new NumericUpDown();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            numRed = new NumericUpDown();
+            numGreen = new NumericUpDown();
+            numBlue = new NumericUpDown();
+            labelRed = new Label();
+            labelGreen = new Label();
+            labelBlue = new Label();
+            labelHue = new Label();
+            labelSaturation = new Label();
+            labelValueBrightness = new Label();
+            ((System.ComponentModel.ISupportInitialize)numHue).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numSaturation).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numValueBrightness).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numRed).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numGreen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numBlue).BeginInit();
             SuspendLayout();
             // 
-            // numericUpDown1
+            // numHue
             // 
-            numericUpDown1.Location = new Point(66, 62);
-            numericUpDown1.Maximum = new decimal(new int[] { 360, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(180, 31);
-            numericUpDown1.TabIndex = 0;
-            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+            numHue.Location = new Point(123, 39);
+            numHue.Margin = new Padding(2);
+            numHue.Maximum = new decimal(new int[] { 360, 0, 0, 0 });
+            numHue.Name = "numHue";
+            numHue.Size = new Size(126, 23);
+            numHue.TabIndex = 0;
+            numHue.ValueChanged += HueValueChanged;
             // 
-            // numericUpDown2
+            // numSaturation
             // 
-            numericUpDown2.Location = new Point(66, 153);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(180, 31);
-            numericUpDown2.TabIndex = 1;
-            numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
+            numSaturation.Location = new Point(123, 93);
+            numSaturation.Margin = new Padding(2);
+            numSaturation.Name = "numSaturation";
+            numSaturation.Size = new Size(126, 23);
+            numSaturation.TabIndex = 1;
+            numSaturation.ValueChanged += saturationValueChanged;
             // 
-            // numericUpDown3
+            // numValueBrightness
             // 
-            numericUpDown3.Location = new Point(66, 277);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(180, 31);
-            numericUpDown3.TabIndex = 2;
-            numericUpDown3.ValueChanged += numericUpDown3_ValueChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(391, 68);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 25);
-            label1.TabIndex = 3;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(391, 159);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 25);
-            label2.TabIndex = 4;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(391, 283);
-            label3.Name = "label3";
-            label3.Size = new Size(59, 25);
-            label3.TabIndex = 5;
-            label3.Text = "label3";
+            numValueBrightness.Location = new Point(123, 162);
+            numValueBrightness.Margin = new Padding(2);
+            numValueBrightness.Name = "numValueBrightness";
+            numValueBrightness.Size = new Size(126, 23);
+            numValueBrightness.TabIndex = 2;
+            numValueBrightness.ValueChanged += brightnessValueChanged;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(564, 62);
+            pictureBox1.Location = new Point(659, 41);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(202, 246);
+            pictureBox1.Size = new Size(141, 148);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            pictureBox1.BackColorChanged += numericUpDown1_ValueChanged;
             pictureBox1.Click += pictureBox1_Click;
+            // 
+            // numRed
+            // 
+            numRed.Location = new Point(453, 35);
+            numRed.Name = "numRed";
+            numRed.Size = new Size(120, 23);
+            numRed.TabIndex = 7;
+            // 
+            // numGreen
+            // 
+            numGreen.Location = new Point(453, 93);
+            numGreen.Name = "numGreen";
+            numGreen.Size = new Size(120, 23);
+            numGreen.TabIndex = 8;
+            // 
+            // numBlue
+            // 
+            numBlue.Location = new Point(453, 162);
+            numBlue.Name = "numBlue";
+            numBlue.Size = new Size(120, 23);
+            numBlue.TabIndex = 9;
+            // 
+            // labelRed
+            // 
+            labelRed.AutoSize = true;
+            labelRed.Location = new Point(348, 37);
+            labelRed.Name = "labelRed";
+            labelRed.Size = new Size(27, 15);
+            labelRed.TabIndex = 10;
+            labelRed.Text = "Red";
+            // 
+            // labelGreen
+            // 
+            labelGreen.AutoSize = true;
+            labelGreen.Location = new Point(337, 95);
+            labelGreen.Name = "labelGreen";
+            labelGreen.Size = new Size(38, 15);
+            labelGreen.TabIndex = 11;
+            labelGreen.Text = "Green";
+            // 
+            // labelBlue
+            // 
+            labelBlue.AutoSize = true;
+            labelBlue.Location = new Point(345, 170);
+            labelBlue.Name = "labelBlue";
+            labelBlue.Size = new Size(30, 15);
+            labelBlue.TabIndex = 12;
+            labelBlue.Text = "Blue";
+            // 
+            // labelHue
+            // 
+            labelHue.AutoSize = true;
+            labelHue.Location = new Point(41, 41);
+            labelHue.Name = "labelHue";
+            labelHue.Size = new Size(29, 15);
+            labelHue.TabIndex = 13;
+            labelHue.Text = "Hue";
+            // 
+            // labelSaturation
+            // 
+            labelSaturation.AutoSize = true;
+            labelSaturation.Location = new Point(41, 101);
+            labelSaturation.Name = "labelSaturation";
+            labelSaturation.Size = new Size(61, 15);
+            labelSaturation.TabIndex = 14;
+            labelSaturation.Text = "Saturation";
+            // 
+            // labelValueBrightness
+            // 
+            labelValueBrightness.AutoSize = true;
+            labelValueBrightness.Location = new Point(47, 164);
+            labelValueBrightness.Name = "labelValueBrightness";
+            labelValueBrightness.Size = new Size(35, 15);
+            labelValueBrightness.TabIndex = 15;
+            labelValueBrightness.Text = "Value";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(846, 273);
+            Controls.Add(labelValueBrightness);
+            Controls.Add(labelSaturation);
+            Controls.Add(labelHue);
+            Controls.Add(labelBlue);
+            Controls.Add(labelGreen);
+            Controls.Add(labelRed);
+            Controls.Add(numBlue);
+            Controls.Add(numGreen);
+            Controls.Add(numRed);
             Controls.Add(pictureBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(numericUpDown3);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
+            Controls.Add(numValueBrightness);
+            Controls.Add(numSaturation);
+            Controls.Add(numHue);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numHue).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numSaturation).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numValueBrightness).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numRed).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numGreen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numBlue).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,12 +203,18 @@ namespace HSVtoRGB
 
         #endregion
 
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private NumericUpDown numHue;
+        private NumericUpDown numSaturation;
+        private NumericUpDown numValueBrightness;
         private PictureBox pictureBox1;
+        private NumericUpDown numRed;
+        private NumericUpDown numGreen;
+        private NumericUpDown numBlue;
+        private Label labelRed;
+        private Label labelGreen;
+        private Label labelBlue;
+        private Label labelHue;
+        private Label labelSaturation;
+        private Label labelValueBrightness;
     }
 }
