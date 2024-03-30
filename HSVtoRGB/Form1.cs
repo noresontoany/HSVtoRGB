@@ -3,38 +3,62 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace HSVtoRGB
 {
     public partial class Form1 : Form
+
+
+
     {
         public Form1()
         {
             InitializeComponent();
         }
+
+        bool EvenIsGoing;
         private void HueValueChanged(object sender, EventArgs e)
         {
-            hsv_to_rgb_Setter();
+            if (!EvenIsGoing)
+            {
+                hsv_to_rgb_Setter();
+            }
+            
         }
         private void saturationValueChanged(object sender, EventArgs e)
         {
-            hsv_to_rgb_Setter();
+            if (!EvenIsGoing)
+            {
+                hsv_to_rgb_Setter();
+            }
         }
 
         private void brightnessValueChanged(object sender, EventArgs e)
         {
-            hsv_to_rgb_Setter();
+            if (!EvenIsGoing)
+            {
+                hsv_to_rgb_Setter();
+            }
         }
 
         private void numRed_ValueChanged(object sender, EventArgs e)
         {
-            rgb_to_hsv_Setter();
+            if (!EvenIsGoing)
+            {
+                rgb_to_hsv_Setter();
+            }
         }
 
         private void numGreen_ValueChanged(object sender, EventArgs e)
         {
-            rgb_to_hsv_Setter();
+            if (!EvenIsGoing)
+            {
+                rgb_to_hsv_Setter();
+            }
         }
 
         private void numBlue_ValueChanged(object sender, EventArgs e)
         {
-            rgb_to_hsv_Setter();
+            if (!EvenIsGoing)
+            {
+                rgb_to_hsv_Setter();
+            }
         }
 
 
@@ -43,6 +67,7 @@ namespace HSVtoRGB
 
             try
             {
+                EvenIsGoing = true;
                 // считали значения с полей для ввода и сконвертили в числа
                 var HueValue = float.Parse(numHue.Text);
                 var SaturationValue = float.Parse(numSaturation.Text);
@@ -68,6 +93,9 @@ namespace HSVtoRGB
 
 
                 pictureBox1.BackColor = Color.FromArgb((int)rgb.r, (int)rgb.b, (int)rgb.b);
+
+
+                EvenIsGoing = false;
             }
             catch (FormatException)
             {
@@ -79,7 +107,7 @@ namespace HSVtoRGB
 
             try
             {
-
+                EvenIsGoing = true;
                 var RedValue = float.Parse(numRed.Text);
                 var GreenValue = float.Parse(numGreen.Text);
                 var BlueValue = float.Parse(numBlue.Text);
@@ -94,9 +122,9 @@ namespace HSVtoRGB
 
                 hsv = rgb.Solver();
 
-                //numHue.Text = Convert.ToString(hsv.Hue);
-                //numSaturation.Text = Convert.ToString(hsv.Saturation);
-                //numValueBrightness.Text = Convert.ToString(hsv.Value);
+                numHue.Text = Convert.ToString((int)hsv.Hue);
+                numSaturation.Text = Convert.ToString((int)hsv.Saturation);
+                numValueBrightness.Text = Convert.ToString((int)hsv.Value);
 
 
                 labelHue.Text = Convert.ToString((int)hsv.Hue);
@@ -107,6 +135,8 @@ namespace HSVtoRGB
 
 
                 pictureBox1.BackColor = Color.FromArgb((int)RedValue, (int)GreenValue, (int)BlueValue);
+
+                EvenIsGoing = false;
             }
             catch (FormatException)
             {
