@@ -94,14 +94,14 @@ namespace HSVtoRGB
 
                 hsv = rgb.Solver();
 
-                numHue.Text = Convert.ToString(hsv.Hue);
-                numSaturation.Text = Convert.ToString(hsv.Saturation);
-                numValueBrightness.Text = Convert.ToString(hsv.Value);
+                //numHue.Text = Convert.ToString(hsv.Hue);
+                //numSaturation.Text = Convert.ToString(hsv.Saturation);
+                //numValueBrightness.Text = Convert.ToString(hsv.Value);
 
 
-                labelHue.Text = Convert.ToString(hsv.Hue);
-                labelSaturation.Text = Convert.ToString(hsv.Saturation);
-                labelValueBrightness.Text = Convert.ToString(hsv.Value);
+                labelHue.Text = Convert.ToString((int)hsv.Hue);
+                labelSaturation.Text = Convert.ToString((int)hsv.Saturation);
+                labelValueBrightness.Text = Convert.ToString((int)hsv.Value);
 
 
 
@@ -183,25 +183,23 @@ namespace HSVtoRGB
             HSV hsv;
             float Cmax = Math.Max(this.red, Math.Max(this.green, this.blue));
             float Cmin = Math.Min(this.red, Math.Min(this.green, this.blue));
-
             float Delta = Cmax - Cmin;
+
+            hsv.Hue = -1;
 
             if (Delta == 0)
             {
                 hsv.Hue = 0;
             }
             else if (Cmax == this.red)
-            {
-                hsv.Hue = 60 * (((this.green - this.blue) / Delta)) % 6;
-            }
+                hsv.Hue = (60 * ((this.green - this.blue) / Delta) + 360) % 360;
+
+            else if (Cmax == this.green)
+                hsv.Hue = (60 * ((this.blue - this.red) / Delta) + 120) % 360;
+
+
             else if (Cmax == this.blue)
-            {
-                hsv.Hue = 60 * (((this.blue - this.red)/Delta) + 2);
-            }
-            else
-            {
-                hsv.Hue = 60 * ((this.red - this.green / Delta) + 4);
-            }
+                hsv.Hue = (60 * ((this.red - this.green) / Delta) + 240) % 360;
 
             if (Cmax == 0)
             {
@@ -213,6 +211,9 @@ namespace HSVtoRGB
             }
 
             hsv.Value = Cmax;
+
+
+
             hsv.Saturation *= 100;
             hsv.Value *= 100;
             return hsv; 
