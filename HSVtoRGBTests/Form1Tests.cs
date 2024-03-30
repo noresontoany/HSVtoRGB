@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace HSVtoRGB.Tests
-{
+{   
     [TestClass()]
     public class Form1Tests
 
@@ -408,12 +408,13 @@ namespace HSVtoRGB.Tests
             var rgb = new Rgb();
             HSV hsv;
             HSV test;
-            rgb.Red = 128;
-            rgb.Green = 0;
-            rgb.Blue = 128;
             test.Hue = 300;
             test.Saturation = 100;
             test.Value = 50;
+            rgb.Red = 128;
+            rgb.Green = 0;
+            rgb.Blue = 128;
+
             hsv = rgb.Solver();
             Assert.AreEqual(hsv, test);
         }
@@ -494,6 +495,8 @@ namespace HSVtoRGB.Tests
             hsv = rgb.Solver();
             Assert.AreEqual(hsv, test);
         }
+
+
         [TestMethod()]
         public void rgb_to_hsv_SetterTest_Magenta()
         {

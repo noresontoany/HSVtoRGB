@@ -149,9 +149,9 @@ namespace HSVtoRGB
 
                 hsv = rgb.Solver();
 
-                numHue.Text = Convert.ToString((int)hsv.Hue);
-                numSaturation.Text = Convert.ToString((int)hsv.Saturation);
-                numValueBrightness.Text = Convert.ToString((int)hsv.Value);
+                numHue.Text = Convert.ToString(hsv.Hue);
+                numSaturation.Text = Convert.ToString((hsv.Saturation));
+                numValueBrightness.Text = Convert.ToString(hsv.Value);
 
 
                 //labelHue.Text = Convert.ToString((int)hsv.Hue);
@@ -196,13 +196,13 @@ namespace HSVtoRGB
 
     public class Rgb
     {
-        private float red;
+        private double red;
 
-        private float green;
+        private double green;
         
-        private float blue; 
+        private double blue; 
 
-        public float Red
+        public double Red
         {
             get
             {
@@ -214,7 +214,7 @@ namespace HSVtoRGB
             }
         }
 
-        public float Green
+        public double Green
         {
             get
             {
@@ -228,7 +228,7 @@ namespace HSVtoRGB
 
         }
 
-        public float Blue
+        public double Blue
         {
             get
             {
@@ -244,9 +244,9 @@ namespace HSVtoRGB
         public HSV Solver()
         {
             HSV hsv;
-            float Cmax = Math.Max(this.red, Math.Max(this.green, this.blue));
-            float Cmin = Math.Min(this.red, Math.Min(this.green, this.blue));
-            float Delta = Cmax - Cmin;
+            double Cmax = Math.Max(this.red, Math.Max(this.green, this.blue));
+            double Cmin = Math.Min(this.red, Math.Min(this.green, this.blue));
+            double Delta = Cmax - Cmin;
 
             hsv.Hue = -1;
 
@@ -273,12 +273,12 @@ namespace HSVtoRGB
                 hsv.Saturation = Delta / Cmax;
             }
 
-            hsv.Value = Cmax;
+            hsv.Value = (Cmax);
 
 
 
-            hsv.Saturation *= 100;
-            hsv.Value *= 100;
+            hsv.Saturation = Double.Round(hsv.Saturation * 100);
+            hsv.Value = Double.Round(hsv.Value * 100);
             return hsv; 
         }
 
@@ -289,9 +289,9 @@ namespace HSVtoRGB
 
     public class Hsv
     {
-        private float hue;
+        private double hue;
 
-        public float Hue
+        public double Hue
         {
             get
             {
@@ -302,8 +302,8 @@ namespace HSVtoRGB
                 hue = value;
             }
         }
-        private float saturation;
-        public float Saturation
+        private double saturation;
+        public double Saturation
         {
             get
             {
@@ -314,8 +314,8 @@ namespace HSVtoRGB
                 saturation = value / 100;
             }
         }
-        private float valueB;
-        public float Value
+        private double valueB;
+        public double Value
         {
             get
             {
@@ -329,19 +329,19 @@ namespace HSVtoRGB
 
         public RGB Solver()
         {
-            float r, g, b;
+            double r, g, b;
 
-            float h = hue / 60;
+            double h = hue / 60;
 
             int Hi = (int)Math.Floor(h);
 
-            float Vmin = valueB * (1 - saturation);
+            double Vmin = valueB * (1 - saturation);
 
-            float a = (valueB - Vmin) * (hue % 60) / 60;
+            double a = (valueB - Vmin) * (hue % 60) / 60;
 
-            float Vinc = Vmin + a;
+            double Vinc = Vmin + a;
 
-            float Vdec = valueB - a;
+            double Vdec = valueB - a;
 
 
             switch (Hi % 6)
