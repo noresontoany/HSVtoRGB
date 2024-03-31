@@ -4,10 +4,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace HSVtoRGB
 {
     public partial class Form1 : Form
-
-
-
     {
+
+        public bool EvenIsGoing;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace HSVtoRGB
             numValueBrightness.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
         }
 
-        bool EvenIsGoing;
+    
         private void HueValueChanged(object sender, EventArgs e)
         {
             if (!EvenIsGoing)
@@ -81,14 +81,11 @@ namespace HSVtoRGB
                 var SaturationValue = float.Parse(numSaturation.Text);
                 var BrightnessValue = float.Parse(numValueBrightness.Text);
 
-
                 //if (HueValue < 0 || HueValue > 360) throw new Exception();
 
                 //if (SaturationValue < 0 || SaturationValue > 100) throw new Exception();
 
                 //if (BrightnessValue < 0 || BrightnessValue > 100) throw new Exception();
-
-
 
                 var hsv = new Hsv();
                 RGB rgb;
