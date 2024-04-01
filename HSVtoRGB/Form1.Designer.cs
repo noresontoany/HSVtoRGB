@@ -1,7 +1,7 @@
 ﻿
 namespace HSVtoRGB
 {
-    partial class Form1
+    partial class RGBHSV
     {
         /// <summary>
         ///  Required designer variable.
@@ -180,7 +180,7 @@ namespace HSVtoRGB
             labelValueBrightness.TabIndex = 15;
             labelValueBrightness.Text = "Value %";
             // 
-            // Form1
+            // RGBHSV
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -198,8 +198,8 @@ namespace HSVtoRGB
             Controls.Add(numValueBrightness);
             Controls.Add(numSaturation);
             Controls.Add(numHue);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "RGBHSV";
+            Text = "RGBHSV";
             ((System.ComponentModel.ISupportInitialize)numHue).EndInit();
             ((System.ComponentModel.ISupportInitialize)numSaturation).EndInit();
             ((System.ComponentModel.ISupportInitialize)numValueBrightness).EndInit();

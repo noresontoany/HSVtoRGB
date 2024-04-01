@@ -3,12 +3,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HSVtoRGB
 {
-    public partial class Form1 : Form
+    public partial class RGBHSV : Form
     {
 
         public bool EvenIsGoing;
 
-        public Form1()
+        public RGBHSV()
         {
             InitializeComponent();
             numRed.Accelerations.Add(new NumericUpDownAcceleration(0, 10));
@@ -110,9 +110,7 @@ namespace HSVtoRGB
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                "Выберите один из вариантов",
-                 "С");
+                
             }
         }
 
@@ -164,9 +162,7 @@ namespace HSVtoRGB
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                "Выберите один из вариантов",
-                "Сообщение");
+                
 
             }
         }
@@ -380,10 +376,6 @@ namespace HSVtoRGB
             rgb.r = Math.Ceiling(r * 255);
             rgb.g = Math.Ceiling(g * 255);
             rgb.b = Math.Ceiling(b * 255);
-
-            Console.WriteLine(rgb.r);
-            Console.WriteLine(rgb.g);
-            Console.WriteLine(rgb.b);
 
             return rgb;
         }
